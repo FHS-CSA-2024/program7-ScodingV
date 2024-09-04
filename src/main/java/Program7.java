@@ -1,30 +1,43 @@
-package src.main.java;
-//import stuff here
-
-//Your code here
-
-public class Program7{
-	//Define your final variables here
-	// **HINT: Maybe the conversion rates?????**
-
-
-	public static void main(String[] args){
-		//Make you own test code here
-		Program7 tester = new Program7();
-		
-		double myTestVal = 0.0;
-		
-		myTestVal = tester.convertMoney(0,0,0);
-		
-		System.out.println(myTestVal);
-	}
+package scr.main.java
 	
-	
-	
-	public double convertMoney(int schruteBucks, int stanleyNickels, int klevins){
-		//implement a function that converts from the old format to the new format
-		
-	}
-	
-	
+import java.util.Scanner;
+public class Program7r {
+    public static void main(String[] args) {
+        final int KlevinsPerSchrute = 20;
+        final int StanNickPerKlevin = 12;
+        final int StanNickPerSchrute = KlevinsPerSchrute * StanNickPerKlevin;
+        
+        //Scanner for user input
+        Scanner scanner = new Scanner(System.in);
+        
+        //Input statements
+        System.out.println("Enter schrute-bucks: ");
+        int schruteBucks = scanner.nextInt();
+        
+        System.out.println("Enter klevins: ");
+        int klevins = scanner.nextInt();
+        
+        System.out.println("Enter stanley-nickles: ");
+        int stanleyNickels = scanner.nextInt();
+        
+        //Convert to decimal schrute-bucks
+        double totalStanleyNickels = schruteBucks * StanNickPerSchrute + klevins * StanNickPerKlevin + stanleyNickels;
+        
+        double decimalSchruteBucks = totalStanleyNickels / StanNickPerSchrute;
+        
+        System.out.printf("Decimal schrute-bucks: $%.2f%n", decimalSchruteBucks);
+        
+        scanner.close();
+    }
 }
+
+/*Output:
+Enter schrute-bucks: 
+7
+Enter klevins: 
+17
+Enter stanley-nickles: 
+9
+Decimal schrute-bucks: $7.89
+
+*/
